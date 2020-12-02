@@ -1,5 +1,3 @@
-
-
 .bannerImageTop--no-overlay::after {
   display: none;
 }
@@ -268,6 +266,7 @@
 .working-from__media-card:link,
 .working-from__media-card:visited {
   color: white;
+  border: none;
 }
 
 .working-from__media-card-bg {
@@ -942,11 +941,12 @@
   text-align: center;
 }
 
-.company-ratings__tabs {
+.company-ratings__tabs-nav {
   display: flex;
   align-items: baseline;
   flex-wrap: wrap;
   justify-content: center;
+  margin-bottom: 32px;
 }
 
 .company-ratings__tabs-nav-link {
@@ -996,12 +996,112 @@
 }
 
 .company-ratings__tabs-nav-link:not(.active):hover {
-  color:  #ff0000;
+  color: #ff0000;
 }
 
 .company-ratings__tabs-nav-link.active
   .company-ratings__tabs-nav-link-text::before {
   opacity: 0;
+}
+
+.company-ratings__tabs-items {
+  position: relative;
+}
+
+.company-ratings__tabs-item {
+  min-height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s, visibility 0s linear 0.3s;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.company-ratings__tabs-item.active {
+  position: relative;
+  opacity: 1;
+  visibility: visible;
+  z-index: 2;
+
+  transition: transform 0.3s, visibility 0.3s;
+}
+
+.company-ratings__slider {
+  position: relative;
+}
+
+
+.company-ratings__slider-card {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  border: 1px solid #dedede;
+  position: relative;
+  padding: 40px 30px;
+}
+
+.company-ratings__slider-card:link,
+.company-ratings__slider-card:visited {
+  color: black;
+  border: 1px solid #dedede;
+}
+
+.company-ratings__slider-card::after {
+  content: "";
+  position: absolute;
+  left: -1px;
+  bottom: -1px;
+  right: -1px;
+  height: 3px;
+  background-color: #aaaaaa;
+  transition: transform 0.3s, background-color 0.3s;
+  transform-origin: center bottom;
+
+  z-index: 20;
+}
+
+.company-ratings__slider-card:hover::after {
+  background-color: #ff0000;
+  transform: scaleY(1.8);
+}
+
+.company-ratings__slider-card-category {
+  color: #888788;
+  font-size: 11px;
+  line-height: 16px;
+  font-family: "circebold", sans-serif;
+  margin-bottom: 5px;
+}
+
+.company-ratings__slider-card-rating-name {
+  font-size: 32px;
+  line-height: 40px;
+  font-family: "circebold", sans-serif;
+  font-weight: 400;
+  margin-bottom: 4px;
+  padding: 0;
+}
+
+.company-ratings__slider-card-text {
+  font-size: 13px;
+  line-height: 20px;
+  font-family: "circeregular", sans-serif;
+  margin-bottom: 35px;
+}
+
+.company-ratings__slider-card-logo {
+  display: block;
+  margin-top: auto;
+  height: 48px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  align-self: flex-start;
 }
 
 .company-news {
@@ -1286,8 +1386,6 @@
     padding: 0;
     display: flex;
     flex-direction: column;
-   
-  
   }
 
   .projects__brands-list {
@@ -1424,6 +1522,12 @@
   .about-task__card-link:visited {
     padding-left: 25px;
     padding-right: 25px;
+    border: none;
+  }
+
+
+  .company-ratings {
+    margin-bottom: 50px;
   }
 }
 
@@ -1682,4 +1786,38 @@
     display: block;
     box-sizing: border-box;
   }
+
+
+  .company-ratings__slider .slider-universal-arrow {
+    display: none;
+  }
+
+  .company-ratings__tabs-nav-link {
+    font-size: 14px;
+    padding: 0 8px;
+  }
+
+
+  .company-ratings__tabs-nav-link-text {
+    padding: 2px 0;
+    padding-bottom: 0px;
+  }
+
+  .company-ratings__slider .swiper-container {
+    overflow: visible;
+  }
+
+
+  .company-ratings__slider .swiper-slide {
+    width: 200px;
+  }
+
+  .company-ratings__heading {
+    margin-bottom: 10px;
+  }
+
+  .company-ratings__tabs-nav {
+    margin-bottom: 20px;
+  }
+  
 }

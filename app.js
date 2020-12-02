@@ -102,7 +102,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
 
-  var companyRatingsSliders = Array.prototype.slice.call('.js-company-ratings-slider');
+  var companyRatingsSliders = Array.prototype.slice.call(document.querySelectorAll('.js-company-ratings-slider'));
 
 
   companyRatingsSliders.forEach(function(element) {
@@ -128,5 +128,39 @@ document.addEventListener("DOMContentLoaded", function () {
         },
       },
     });
+  })
+
+
+  var ratingsTabs = Array.prototype.slice.call(document.querySelectorAll('.js-ratings-tabs'));
+
+  ratingsTabs.forEach(function(element) {
+    var links = Array.prototype.slice.call(element.querySelectorAll('.company-ratings__tabs-nav-link'));
+    var items = Array.prototype.slice.call(element.querySelectorAll('.company-ratings__tabs-item'));
+
+    if (links.length !== items.length) {
+      console.error('Not equal amount of elements');
+      return;
+    }
+
+    function setActiveTab(index) {
+      links.forEach(function(link) {
+        link.classList.remove('active');
+      })
+      items.forEach(function(item) {
+        item.classList.remove('active');
+      })
+
+      links[index].classList.add('active');
+      items[index].classList.add('active');
+    }
+
+    links.forEach(function(link, linkIndex) {
+      link.addEventListener('click', function(event) {
+        event.preventDefault();
+        setActiveTab(linkIndex)
+      })
+    })
+
+    setActiveTab(0);
   })
 });
