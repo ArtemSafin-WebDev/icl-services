@@ -1,4 +1,12 @@
 document.addEventListener("DOMContentLoaded", function () {
+
+  $(".fancybox-youtube").fancybox({
+    openEffect  : 'none',
+    closeEffect : 'none',
+    helpers : {
+        media : {}
+    }
+});
   var projectsSliders = Array.prototype.slice.call(
     document.querySelectorAll(".js-projects-slider")
   );

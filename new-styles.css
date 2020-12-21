@@ -577,6 +577,11 @@
   margin-bottom: 8px;
   color: #232323;
   text-transform: uppercase;
+  transition: color .2s;
+}
+
+.projects__slider-card:hover .projects__slider-card-title {
+  color: #ff0000;
 }
 
 .projects__slider-card-text {
@@ -700,6 +705,13 @@
   position: relative;
   overflow: hidden;
   z-index: 1;
+  backface-visibility: hidden;
+}
+
+.our-team__info-card:link,
+.our-team__info-card:visited {
+  color: white;
+  border: none;
 }
 
 .our-team__info-card--large {
@@ -724,8 +736,9 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: filter 0.5s;
 }
-
+.our-team__info-card-bg::before,
 .our-team__info-card-bg::after {
   content: "";
   position: absolute;
@@ -733,26 +746,54 @@
   top: 0;
   width: 100%;
   height: 100%;
+  transition: opacity 0.5s, filter .5s;
+}
+
+.our-team__info-card-bg::after {
+  z-index: 40;
+}
+
+.our-team__info-card-bg--red::after {
+  background: linear-gradient(
+    180deg,
+    rgba(201, 42, 42, 0.71) -9.02%,
+    #4f2727 115.06%
+  );
+}
+
+.our-team__info-card-bg--blue::after {
   background: linear-gradient(
     180deg,
     rgba(60, 91, 202, 0.71) -13.73%,
     #434e74 115.06%
   );
-  mix-blend-mode: luminosity;
 }
 
+
+
 .our-team__info-card--large .our-team__info-card-bg::after {
-  background: linear-gradient(
-    180deg,
-    rgba(58, 96, 228, 0.71) -13.73%,
-    rgba(48, 72, 159, 0.58) 115.06%
-  );
+  
+
+  background: linear-gradient(180deg, rgba(58, 96, 228, 0.71) -13.73%, rgba(48, 72, 159, 0.58) 115.06%);
+  mix-blend-mode: luminosity;
+  opacity: 0;
 }
 
 .our-team__info-card:link,
 .our-team__info-card:visited {
   border: none;
   color: white;
+}
+
+
+
+.our-team__info-card:hover .our-team__info-card-bg::after {
+  filter: grayscale(100%); 
+  opacity: 1;
+}
+
+.our-team__info-card:hover .our-team__info-card-image {
+  filter: grayscale(100%); 
 }
 
 .our-team__info-card-title {
@@ -856,7 +897,7 @@
 }
 
 .behind-service {
-  margin-bottom: 104px;
+  margin-bottom: 80px;
 }
 
 .behind-service__heading {
@@ -1426,7 +1467,6 @@
 }
 
 @media screen and (max-width: 1199px) {
-
   .contact-us {
     padding: 30px 0;
   }
@@ -1540,6 +1580,8 @@
     flex-grow: 1;
   }
 
+
+
   .projects__slider .swiper-slide {
     width: 264px;
   }
@@ -1575,6 +1617,7 @@
 
   .choose-service__card-title {
     margin-bottom: 24px;
+    transition: color .2s;
   }
 
   .our-team__info-list-item {
@@ -1971,12 +2014,10 @@
     width: 100%;
     margin: 0;
     margin-bottom: 20px;
-
   }
 
   .contact-us__button:last-child {
     margin-bottom: 0;
-    
   }
 
   .contact-us__heading {
