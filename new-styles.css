@@ -737,6 +737,7 @@
   height: 100%;
   object-fit: cover;
   transition: filter 0.5s;
+  filter: grayscale(100%); 
 }
 .our-team__info-card-bg::before,
 .our-team__info-card-bg::after {
@@ -751,6 +752,7 @@
 
 .our-team__info-card-bg::after {
   z-index: 40;
+  filter: grayscale(100%); 
 }
 
 .our-team__info-card-bg--red::after {
@@ -773,10 +775,10 @@
 
 .our-team__info-card--large .our-team__info-card-bg::after {
   
-
+  filter: grayscale(100%); 
   background: linear-gradient(180deg, rgba(58, 96, 228, 0.71) -13.73%, rgba(48, 72, 159, 0.58) 115.06%);
   mix-blend-mode: luminosity;
-  opacity: 0;
+  opacity: 1;
 }
 
 .our-team__info-card:link,
@@ -785,15 +787,17 @@
   color: white;
 }
 
-
-
 .our-team__info-card:hover .our-team__info-card-bg::after {
-  filter: grayscale(100%); 
-  opacity: 1;
+  filter: grayscale(0%); 
+}
+
+.our-team__info-card--large:hover .our-team__info-card-bg::after {
+  filter: grayscale(0%); 
+  opacity: 0;
 }
 
 .our-team__info-card:hover .our-team__info-card-image {
-  filter: grayscale(100%); 
+  filter: grayscale(0%); 
 }
 
 .our-team__info-card-title {
